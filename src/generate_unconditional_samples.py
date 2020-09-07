@@ -8,15 +8,24 @@ import tensorflow as tf
 
 import model, sample, encoder
 
+model_name = '117M'
+seed = None
+nsamples = 0
+batch_size = 1
+length = None
+temperature = 1
+top_k = 0
+top_p = 0.0
+
 def sample_model(
-    model_name='117M',
-    seed=None,
-    nsamples=0,
-    batch_size=1,
-    length=None,
-    temperature=1,
-    top_k=0,
-    top_p=0.0
+    model_name=model_name, #cq401_eot
+    seed=seed,
+    nsamples=nsamples,
+    batch_size=batch_size,
+    length=length,
+    temperature=temperature,
+    top_k=top_k,
+    top_p=top_p
 ):
     """
     Run the sample_model
@@ -73,5 +82,26 @@ def sample_model(
                 print("=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40)
                 print(text)
 
-if __name__ == '__main__':
-    fire.Fire(sample_model)
+# if __name__ == '__main__':
+#     fire.Fire(sample_model)
+
+# import sys
+# def run_externally(model_name='cq401_eot',  # 117M
+#                    seed=None,
+#                    nsamples=1,  # 0
+#                    batch_size=1,
+#                    length=None,
+#                    temperature=1,
+#                    top_k=0,
+#                    top_p=0.0):
+
+#     model_name = model_name,  # cq401_eot
+#     seed = seed,
+#     nsamples = nsamples,
+#     batch_size = batch_size,
+#     length = length,
+#     temperature = temperature,
+#     top_k = top_k,
+#     top_p = top_p
+
+#     fire.Fire(sample_model)
